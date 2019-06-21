@@ -1,0 +1,10 @@
+# python section
+*.pyc
+*.egg-info/
+.coverage
+
+# Vim Edits
+*.swp
+
+# venv
+.env/
