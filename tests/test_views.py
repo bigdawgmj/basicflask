@@ -1,4 +1,5 @@
 import pytest
+from json import loads
 
 from vikingapp import app
 
@@ -23,4 +24,13 @@ def test_greet_person(client):
 
 def test_post_greet_person_returns_405(client):
     rv = client.post('/name/Tom')
+    assert '405' in rv.status
+
+def test_sum_stuff_returns_sum(client):
+    rv = client.get('/sum?x=2&y=3')
+    data = loads(rv.data)
+    assert data['sum'] == 5
+
+def test_sum_stuff_post_returns_405(client):
+    rv = client.post('/sum?x=3&y=4')
     assert '405' in rv.status
