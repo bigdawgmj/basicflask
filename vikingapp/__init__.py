@@ -3,5 +3,11 @@ app = Flask(__name__)
 
 import vikingapp.views
 
-if __name__ == '__main__':
+def main():
     app.run()
+
+def init():
+    if __name__ == '__main__':
+        main()
+
+init()
